@@ -1,0 +1,82 @@
+<h2>Clientes</h2>
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="clients">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id" sticky>
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <!-- Direccion Column -->
+    <ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef> Direccion </th>
+      <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+    </ng-container>
+
+    <!-- Nit Column -->
+    <ng-container matColumnDef="nit">
+        <th mat-header-cell *matHeaderCellDef> Nit </th>
+        <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
+    </ng-container>
+
+    <!-- Creado Por Column -->
+    <ng-container matColumnDef="creado_por">
+      <th mat-header-cell *matHeaderCellDef> Creado Por </th>
+      <td mat-cell *matCellDef="let element"> {{element.creado_por}} </td>
+    </ng-container>
+
+    <!-- Facturas Column -->
+    <ng-container matColumnDef="bills">
+      <th mat-header-cell *matHeaderCellDef>Facturas</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button routerLink="/administracion/bill-client/{{element.id}}">
+          <mat-icon>receipt</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- edit Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Editar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button routerLink="/administracion/edit-client/{{element.id}}">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+
+    </ng-container>
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="onDelete(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Star Column -->
+    <ng-container matColumnDef="star" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon>more_vert</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div class="action-buttons">
+  <button mat-fab color="primary" aria-label="Agregar cliente" routerLink="/administracion/add-client">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-content>
+        <mat-card-title>{{title}}</mat-card-title>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field *ngIf="action == 'edit'">
+                <input matInput placeholder="Id" formControlName="id" >
+                <mat-error>
+                    Provea un id valido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Nombre" formControlName="nombre" required>
+                <mat-error>
+                    Provea un nombre de cliente valido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Direccion" formControlName="direccion" required>
+                <mat-error>
+                    Provea una direccion valida
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Nit" formControlName="nit" required>
+                <mat-error>
+                    Provea un nit valido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Creado por" formControlName="creado_por" required>
+                <mat-error>
+                    Provea un carne valido
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Guardar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

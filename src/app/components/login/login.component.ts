@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl('/administracion');
             }
             this.loginInvalid = true;
-          }
+          }, () => this.loginInvalid = true
         );
       } catch (err) {
         this.loginInvalid = true;
